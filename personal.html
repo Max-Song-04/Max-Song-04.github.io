@@ -1,0 +1,479 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Max Song - Portfolio</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="assets/css/main.css">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css"></noscript>
+		<style>
+			:root {
+				--nav-background-color: #4a5b69;
+				--image-dimensions: 5%;
+                --margin: 5vw;
+                --font-size: .8rem;
+			}
+
+            #bg {
+                z-index: -1;
+            }
+
+            body {
+                overflow-y: auto;
+            }
+            
+			body:not(.is-preload) .floating-nav{
+				background-color: var(--nav-background-color);
+			}
+
+			.floating-nav {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 2rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background-color: var(--nav-background-color);
+                z-index: 2;
+			}
+
+			.floating-nav ul {
+				display: flex;
+				margin: 0;
+				list-style: none;
+			}
+
+			.nav-buttons {
+				display: flex;
+				height: 100%;
+				margin-right: 2rem;
+			}
+
+			.nav-button {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 100%;
+				padding: 0 1rem;
+				text-decoration: none;
+				text-transform: uppercase;
+				color: #f0f1ff;
+				font-size: .7rem;
+				background-color: transparent;
+				border: none;
+				cursor: pointer;
+			}
+
+			.content-container {
+				margin-top: 0rem;
+				padding: 1rem;
+			}
+
+			.nav-button:hover {
+				background-color: rgba(255, 255, 255, 0.1);
+			}
+
+			.nav-logo {
+				color: #f0f1ff;
+				margin-left: .5rem;
+				text-decoration: none;
+				text-transform: uppercase;
+				border: none;
+				font-size: 1rem;
+				padding-left: 1rem;
+				display: flex;
+				align-items: center;
+				height: 100%;
+			}
+
+            .project-banner {
+                margin: 5vw 5vw 5vw 5vw;
+                padding: 2rem;
+                background: rgba(12, 13, 14, 0.5);
+                border-radius: 0.1rem;
+                color: #f0f1ff;
+                position: relative;
+            }
+
+            .project-title-section {
+                text-align: center;
+                margin-bottom: 3rem;
+            }
+
+            .project-title-section h1 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                color: #f0f1ff;
+            }
+
+            .project-subtitle-section{
+                font-size: 1.2rem;
+                margin-top: -2rem;
+                text-align: center;
+                margin-bottom: -2rem;
+                font-weight: bold;
+                color: #f0f1ff;
+            }
+
+            .title-underline {
+                width: 80%;
+                height: .5px;
+                background: #f0f1ff;
+                margin: 0 auto;
+            }
+
+            .content-section {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                margin: 3rem 0;
+                padding: 1rem 0rem;
+                border-bottom: 1px solid rgba(240, 241, 255, 0.1);
+            }
+
+            .content-left {
+                flex: var(--image-dimensions);
+                display: flex;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                margin-left: var(--margin);
+                justify-content: flex-start;
+            }
+
+            .content-right {
+                flex: 1;
+                margin-right: var(--margin);
+                margin-left: 2vw;
+            }
+
+            .section-image {
+                width: 90%;
+                aspect-ratio: 1.7;
+                object-fit: cover;
+                display: block;
+            }
+
+            .image-group {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0;
+            }
+
+            .section-title {
+                font-size: 1rem;
+                color: #f0f1ff;
+            }
+
+            .section-description {
+                font-size: .7rem;
+                margin-top: -1rem;
+                line-height: 1.6;
+                color: rgba(240, 241, 255, 0.8);
+            }
+
+            @media (max-width: 768px) {
+                .content-section {
+                    flex-direction: column;
+                    gap: 2rem;
+                }
+
+                .content-left,
+                .content-right {
+                    padding: 0;
+                }
+            }
+
+            .description-section {
+                margin: 3rem;
+                margin-top: -3rem;
+                padding: 2rem 0;
+                align-content: center;
+                border-bottom: 1px solid rgba(240, 241, 255, 0.1);
+                font-size: var(--font-size);
+                line-height: 1.6;
+                color: rgba(240, 241, 255, 0.8);
+            }
+
+            .carousel-section {
+                overflow: hidden;
+                margin: 2rem 0;
+            }
+
+            .carousel-container {
+                display: flex;
+                overflow-x: scroll;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                padding: 1rem 0;
+            }
+
+            .carousel-container::-webkit-scrollbar {
+                display: none;
+            }
+
+            .carousel-item {
+                flex: 0 0 auto;
+                width: 20vw;
+                height: 20vw;
+            }
+
+            .carousel-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            
+            .website-button {
+                display: block;
+                width: calc(100% + 4rem);
+                padding: 1rem;
+                background-color: transparent;
+                border: none;
+                color: #f0f1ff;
+                text-align: center;
+                text-decoration: none;
+                font-size: 1rem;
+                transition: background-color 0.3s ease;
+                margin: -2rem -2rem -2rem -2rem;
+            }
+
+            .website-button:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                border: none;
+            }
+
+		</style>
+	</head>
+		<body class="is-preload">
+			<nav class="floating-nav">
+				<a href="index.html" class="nav-logo"><b>Max Song</b></a>
+				<div class="nav-buttons">
+					<a href="index.html#header" class="nav-button"><b>Home</b></a>
+					<a href="index.html#about" class="nav-button"><b>About</b></a>
+					<a href="index.html#contact" class="nav-button"><b>Contact</b></a>
+					<a href="projects.html" class="nav-button"><b>Projects</b></a>
+					<a href="Song_Max_EngResume.pdf" target="_blank" class="nav-button"><b>Resume</b></a>
+				</div>
+			</nav>
+
+            <div id="top" class="project-banner">
+                <div class="project-title-section">
+                    <h1>Personal Projects</h1>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="description-section">
+                    Below, I included personal projects that were more for personal use and had a much smaller scope. Currently the projects below are a Lamp, Record Player, Phone Case and Shoe Rack. These projects are much smaller scope and feature some of my earliest projects. In the future, I hope to design more everyday items and experiment more with shape, materials, and design styles. In general, I use Fusion 360 for most of my projects and have a Bambu A1 to 3D print my designs which I purchased courtesy of my freshman summer internship. Enjoy!
+                </div>
+
+                <div class="project-subtitle-section">
+                    Lamp (IN PROGRESS)
+                </div>
+
+                <div class="content-section">
+                    <div class="content-left">
+                        <img src="images/Personal Projects/Lamp/CAD2.jpg" alt="Project Image" class="section-image">
+                    </div>
+                    <div class="content-right">
+                        <p class="section-description">
+                            <b>Summary: </b> I had an LED Desk Lamp that worked amazing, but the plastic base cracked after being bent too far. I wanted to retain some of the same features including an adjustable light, but this time I wanted to have the ability to change the color temperature. For this project, I wanted to design and create each part of the lamp except the electronics. 
+                            <br><br>
+                            <b>Problem Statement: </b> Create a desk lamp with electronic easily replicable so this same idea could be applied to different lamps for future projects.
+                            <br><br>
+                            <b>Design Process: </b> For this lamp, I wanted to create something similar to my old lamp, but didn't have moving parts to prevent what happened in the past. While the design phase did go through quite a few iterations, I wanted to spend more time with the electronics. I hoped to take the electronics from this project and be able to apply them in future projects. Just some in mind include a light bar for the top of my monitor, and a reading bar above my bed. This means that the electronics have a small form factor with easy adjustability and customizability.
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="content-section">
+                    <div class="content-left">
+                        <p class="section-description">
+                            <b>Progress Check: </b> So far, this project has taught me a lot with electronics integration into a print. During my first iteration of the electronics, I had placed my batteries in series and used two buck converters (I needed two since the LED light strip requires 12V while the microcontroller requires 5V) which led to a very inefficient use of power and an extremely low current that struggles to keep up with the setup. My second iteration included batteries put into parallel and two voltage boosters, that also had a much smaller form factor than the buck converters. Right now, I'm working on creating this lamp to be structurally sound despite having to be print in multiple parts.
+                            <br><br>
+                            <b>Skills: </b> Electronics, Product Design, CAD, Assemblies
+                        </p>
+                    </div>
+                    <div class="content-right">
+                        <img src="images/Personal Projects/Lamp/CAD3.jpg" alt="Project Image" class="section-image">
+                    </div>
+                </div>
+                
+
+                <div class="project-subtitle-section">
+                    Record Player
+                </div>
+
+                <div class="content-section">
+                    <div class="content-left">
+                        <img src="images/Personal Projects/Record Player/CAD2.jpg" alt="Project Image" class="section-image">
+                    </div>
+                    <div class="content-right">
+                        <p class="section-description">
+                            <b>Summary: </b> My sister suffered an injury in 2021 which gave her chronic back pain. I decided to comfort her in the way I knew best, by creating. After brainstorming, I decided to create a way for her to listen to her favorite songs. After combing through the internet, I stumbled upon a video of a video of someone making a digital record player which piqued my interest. Much like a classic turntable, this record player would use an RFID tag and the Spotify API to play her favorite artists, so I knew I had to remake it. I also decided to reuse old items including a battery from an old battery pack, and speakers from an old water-logged speaker, and old Raspberry Pi.
+                            <br><br>
+                            <b>Problem Statement: </b> Design a distraction to relieve my sister from her chronic pain.
+                            <br><br>
+                            <b>Skills: </b> Electronics, 3D Printing, CAD, Design for Assembly (DFA)
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="content-section">
+                    <div class="content-left">
+                        <p class="section-description">
+                            <b>Design Process: </b> When looking through Pinterest for inspiration, I noticed that a lot of the existing turntables wouldn't be practical for me to manufacture. Therefore, I decided to first figure out the electronics and software, then later, when I go the resources, I designed a simple 3D printed enclosure that resembled a very simple turntable. Since this project was one of my firsts, I decided to prioritize practicality over aesthetics. 
+                            <br><br>
+                            <b>Conclusion: </b> This record player achieved the goal of surprising my sister and ended up fitting the aesthetics that I hoped my sister would like. I really enjoyed this project, but there were a lot of improvements I thought of when putting together the record player.
+                            <br><br>
+                            <b>Future Considerations: </b> For this project, since it was one of my firsts, I didn't set a timeline which led to me going down deep rabbit holes and forgetting the big picture. In the future, I also hope to add modifications that'll allow it to behave more like a real turntable and separate speakers. 
+                        </p>
+                    </div>
+                    <div class="content-right">
+                        <img src="images/Personal Projects/Record Player/CAD1.jpg" alt="Project Image" class="section-image">
+                    </div>
+                </div>
+
+                <div class="project-subtitle-section">
+                    Phone Case
+                </div>
+
+                <div class="content-section">
+                    <div class="content-left">
+                        <img src="images/Personal Projects/Phone Case/ModelAngle.jpg" alt="Project Image" class="section-image">
+                    </div>
+                    <div class="content-right">
+                        <p class="section-description">
+                            <b>Summary: </b> I wanted to design a phone case that would allow you to showcase the iPhone's looks without compromising safety. This case featured interconnected PLA bumpers with TPU inserts that would absorb impact. I decided to go with PLA so, in worst case scenario, the case would absorb the impact and crack, rather than the phone. I also designed a wallet that included 3D printed parts.
+                            <br><br>
+                            <b>Problem Statement: </b> Design a phone case that looked unique compared to other phone cases and use much less material without compromising its ability to protect my phone. Also, design a magsafe wallet using both 3D printed parts, magnets, and leather.                           
+                            <br><br>
+                            <b>Project Timeline: </b> Finish the final design before my trip to visit my family overseas.
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="content-section">
+                    <div class="content-left">
+
+                        <p class="section-description">
+                            <b>Design Process: </b> For this project, I browsed the top phone case brands including Mous and Spigen. For inspiration, I learned towards heavier-duty cases which I would then strip down. I also browed Pinterest and Instagram extensively for this project to ensure one, that no one had created my design, and two, that this design would work. For the overall design, I wanted the case to be in one print and snap on to ensure a snug fit. Once sketching initial designs, I realized there was going to be a tight fit especially since I wanted to design a magsafe wallet too. Following this process, I created a CAD and modeled my phone to which I modeled the case around.   
+                            <br><br>
+                            <b>Conclusion: </b> Despite this wallet being just a skeleton, I had dropped it a few times and it my phone didn't crack (although the screen protector did which could still occur even if I had a full case on), which meant I had accomplished my initial goal. I believe this design, although it resembled a bumper case, still looked pretty unique and was able to follow the flow of the iPhone. My only regret is not finishing my wallet in time to carry it during my trip.
+                        </p>
+                    </div>
+                    <div class="content-right">
+                        <img src="images/Personal Projects/Phone Case/CAD.jpg" alt="Project Image" class="section-image">
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="content-left">
+                        <img src="images/Personal Projects/Phone Case/WalletCAD.jpg" alt="Project Image" class="section-image">
+                    </div>
+                    <div class="content-right">
+                        <p class="section-description">
+                            <b>Future Considerations: </b> Since the sides were thin to ensure a magsafe wallet or charger could still fit on the back despite not using either of the two, it snapped while tugging on a corner of my pocket during my trip. I'm currently working on a second iteration that includes double railing on the sides to also further protect the front side of the screen. My first model also included TPU bumpers in the corner, but since I didn't have an enclosed 3D printer, the TPU prints consistently failed, so I didn't include the bumpers in the model I carried to visit my relatives. I'm also considering using a higher resolution printer like an SLA printer for even SLS, resources both available at Texas Inventionworks. For the wallet, I hope to gain access to spring steel sheets which should better maintain pressure on the cards for easier removal. This was an issue with the PETG that I printed with since it didn't maintain enough pressure on the cards.
+                            <br><br>
+                            <b>Skills: </b> CAD, Material Selection, Design for Manufacturing (DFM), Impact Analysis, Rapid Prototyping, Iterative Design Process
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-subtitle-section">
+                    Shoe Rack
+                </div>
+            
+                <div class="content-section">
+                    <div class="content-left">
+
+                        <p class="section-description">
+                            <b>Summary: </b> In the first few months of living in an apartment, I had an pile of shoes sitting outside my apartment door. In an effort to organize my apartment, I designed a shoe rack that was easily modifiable to fit any apartment with bulk dowels I had purchased for my small business years earlier.
+                            <br><br>
+                            <b>Problem Statement: </b> Create a shoe rack that wouldn't require screws or adhesive, allow for modifiable dimensions, be easy to assemble/disassemble to accommodate moving, and reuse old materials. But, most importantly, be considerable cheaper than purchasing a shoe rack.
+                            <br><br>
+                            <b>Porject Timeline: </b> I took up this project during finals week in order to give me to take a break from studying. I also wanted to finish this project before I left for break.
+                            <br><br>
+                            <b>Design Process: </b> During middle school and into high school, I participated in Odyssey of the Mind or OM. Part of OM was to build props for a skit which would sometimes involve using PVC pipes. Since I had old dowels lying around, I realized I just needed to design connectors which would accomplish all my initial goals. With 3D printing, I realized this could be very cheap accomplishing my last goal. Regarding aesthetics, I wanted to emphasize the hybridization of woodworking and 3D printing by using white connectors which would compliment the light birch dowels.
+                        </p>
+                    </div>
+                    <div class="content-right">
+                        <img src="images/Personal Projects/CAD.jpg" alt="Project Image" class="section-image">
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="content-left">
+                        <img src="images/Personal Projects/shorerack3mf.jpg" alt="Project Image" class="section-image">
+                    </div>
+                    <div class="content-right">
+                        <p class="section-description">
+                            <b>Conclusion: </b> The dowels were fairly uneven so it meant my tolerancing had to give enough room without needing epoxy or CA glue. For printing, I used 10% infill, but 3 wall loops for press-fit structural integrity. In total, the print used around 450g to PLA filament which, at $8.99 a kg (bulk from Kingroon), which yielded a printing cost of $4.05. Looking back at my past order, I paid $21 for 25 dowels which means each dowel costed $0.84. I made a 4 foot long shoe rack which, totalled to 6 dowels or $5.04. In total, this costed $9.09. On average, on Amazon, shoe racks of these dimensions, although made from metal, cost on average around $23, so I consider this project a success.
+                            <br><br>
+                            <b>Future Considerations: </b> In the future, I believe adding a finishing oil to the wooden dowels would help with tolerancing since the wood would expand as it absorbs the oil. In addition, I could add a hole in the connectors in case I find a more permanent residence. In addition, screwing into the wood would allow for the wood to expand for a better fit.
+                            <br><br>
+                            <b>Skills: </b> CAD, Rapid Prototyping, 3D printing
+                            <br><br>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- <button onclick="scrollToTop()" class="website-button">
+                    Back to Top
+                </button> -->
+
+			<div id="bg"></div>
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+            
+            function scrollToTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                const carousel = document.querySelector('.carousel-container');
+                const items = Array.from(carousel.querySelectorAll('.carousel-item'));
+                const itemWidth = items[0].offsetWidth;
+                const itemCount = items.length;
+                
+                carousel.querySelectorAll('.carousel-item').forEach(item => item.remove());
+                
+                const clonedItemsBefore = items.map(item => item.cloneNode(true));
+                const clonedItemsAfter = items.map(item => item.cloneNode(true));
+                const originalItems = items.map(item => item.cloneNode(true));
+                
+                clonedItemsBefore.forEach(item => carousel.appendChild(item));
+                originalItems.forEach(item => carousel.appendChild(item));
+                clonedItemsAfter.forEach(item => carousel.appendChild(item));
+                
+                carousel.scrollLeft = itemWidth * itemCount;
+                
+                carousel.addEventListener('wheel', (e) => {
+                    e.preventDefault();
+                    
+                    carousel.scrollLeft += (e.deltaX + e.deltaY)/2;
+                    
+                    const totalWidth = itemWidth * itemCount * 3;
+                    const currentPosition = carousel.scrollLeft;
+                    
+                    if (currentPosition >= itemWidth * itemCount * 2) {
+                        carousel.scrollLeft = currentPosition - (itemWidth * itemCount);
+                    } else if (currentPosition <= 0) {
+                        carousel.scrollLeft = currentPosition + (itemWidth * itemCount);
+                    }
+                });
+            });
+
+		</script>		
+	</body>
+</html>
