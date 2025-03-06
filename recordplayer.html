@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Max Song - Portfolio</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="assets/css/main.css">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css"></noscript>
+		<style>
+			:root {
+				--nav-background-color: #4a5b69;
+				--image-dimensions: 5%;
+                --margin: 5vw;
+                --font-size: .8rem;
+			}
+
+            #bg {
+                z-index: -1;
+            }
+
+            body {
+                overflow-y: auto;
+            }
+            
+			body:not(.is-preload) .floating-nav{
+				background-color: var(--nav-background-color);
+			}
+
+			.floating-nav {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 2rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background-color: var(--nav-background-color);
+                z-index: 2;
+			}
+
+			.floating-nav ul {
+				display: flex;
+				margin: 0;
+				list-style: none;
+			}
+
+			.nav-buttons {
+				display: flex;
+				height: 100%;
+				margin-right: 2rem;
+			}
+
+			.nav-button {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 100%;
+				padding: 0 1rem;
+				text-decoration: none;
+				text-transform: uppercase;
+				color: #f0f1ff;
+				font-size: .7rem;
+				background-color: transparent;
+				border: none;
+				cursor: pointer;
+			}
+
+			.content-container {
+				margin-top: 0rem;
+				padding: 1rem;
+			}
+
+			.nav-button:hover {
+				background-color: rgba(255, 255, 255, 0.1);
+			}
+
+			.nav-logo {
+				color: #f0f1ff;
+				margin-left: .5rem;
+				text-decoration: none;
+				text-transform: uppercase;
+				border: none;
+				font-size: 1rem;
+				padding-left: 1rem;
+				display: flex;
+				align-items: center;
+				height: 100%;
+			}
+
+            .project-banner {
+                margin: 5vw 5vw 5vw 5vw;
+                padding: 2rem;
+                background: rgba(12, 13, 14, 0.5);
+                border-radius: 0.1rem;
+                color: #f0f1ff;
+                position: relative;
+            }
+
+            .project-title-section {
+                text-align: center;
+                margin-bottom: 3rem;
+            }
+
+            .project-title-section h1 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                color: #f0f1ff;
+            }
+
+            .project-subtitle-section{
+                font-size: 1.2rem;
+                margin-top: -1rem;
+                text-align: center;
+                margin-bottom: -3rem;
+                font-weight: bold;
+                color: #f0f1ff;
+            }
+
+            .title-underline {
+                width: 80%;
+                height: .5px;
+                background: #f0f1ff;
+                margin: 0 auto;
+            }
+
+            .content-section {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                margin: 3rem 0;
+                padding: 1rem 0rem;
+                border-bottom: 1px solid rgba(240, 241, 255, 0.1);
+            }
+
+            .content-left {
+                flex: var(--image-dimensions);
+                display: flex;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                margin-left: var(--margin);
+                justify-content: flex-start;
+            }
+
+            .content-right {
+                flex: 1;
+                margin-right: var(--margin);
+                margin-left: 2vw;
+            }
+
+            .section-image {
+                width: 90%;
+                aspect-ratio: 1.7;
+                object-fit: cover;
+                display: block;
+            }
+
+            .image-group {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0;
+            }
+
+            .section-title {
+                font-size: 1rem;
+                color: #f0f1ff;
+            }
+
+            .section-description {
+                font-size: .7rem;
+                margin-top: -1rem;
+                line-height: 1.6;
+                color: rgba(240, 241, 255, 0.8);
+            }
+
+            @media (max-width: 768px) {
+                .content-section {
+                    flex-direction: column;
+                    gap: 2rem;
+                }
+
+                .content-left,
+                .content-right {
+                    padding: 0;
+                }
+            }
+
+            .description-section {
+                margin: 3rem;
+                margin-top: -3rem;
+                padding: 2rem 0;
+                align-content: center;
+                border-bottom: 1px solid rgba(240, 241, 255, 0.1);
+                font-size: var(--font-size);
+                line-height: 1.6;
+                color: rgba(240, 241, 255, 0.8);
+            }
+
+            .carousel-section {
+                overflow: hidden;
+                margin: 2rem 0;
+            }
+
+            .carousel-container {
+                display: flex;
+                overflow-x: scroll;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                padding: 1rem 0;
+            }
+
+            .carousel-container::-webkit-scrollbar {
+                display: none;
+            }
+
+            .carousel-item {
+                flex: 0 0 auto;
+                width: 20vw;
+                height: 20vw;
+            }
+
+            .carousel-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            
+            .website-button {
+                display: block;
+                width: calc(100% + 4rem);
+                padding: 1rem;
+                background-color: transparent;
+                border: none;
+                color: #f0f1ff;
+                text-align: center;
+                text-decoration: none;
+                font-size: 1rem;
+                transition: background-color 0.3s ease;
+                margin: -2rem -2rem -2rem -2rem;
+            }
+
+            .website-button:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                border: none;
+            }
+
+		</style>
+	</head>
+		<body class="is-preload">
+			<nav class="floating-nav">
+				<a href="index.html" class="nav-logo"><b>Max Song</b></a>
+				<div class="nav-buttons">
+					<a href="index.html#header" class="nav-button"><b>Home</b></a>
+					<a href="index.html#about" class="nav-button"><b>About</b></a>
+					<a href="index.html#contact" class="nav-button"><b>Contact</b></a>
+					<a href="projects.html" class="nav-button"><b>Projects</b></a>
+					<a href="Song_Max_EngResume.pdf" target="_blank" class="nav-button"><b>Resume</b></a>
+				</div>
+			</nav>
+
+            <div id="top" class="project-banner">
+                <div class="project-title-section">
+                    <h1>Record Player</h1>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="content-section">
+                    <div class="content-left">
+                        <img src="images/Personal Projects/Record Player/CAD2.jpg" alt="Project Image" class="section-image">
+                    </div>
+                    <div class="content-right">
+                        <p class="section-description">
+                            <b>Summary: </b> In 2021, my sister suffered a severe injury resulting in chronic back pain. I decided to comfort her in the way I knew best, by making. Observing how music provided her comfort, I was motivated to create something that would make her favorite songs more accessible. After doing some research, I stumbled upon two concepts. One was of a record player and the second was of a speaker that used RFID technology to play songs. I decided to combine these concepts with several repurposed components: a battery from an old power bank, drivers from a water-damaged speaker, and an old Raspberry Pi.
+                            <br><br>
+                            <b>Problem Statement: </b> Design a user-friendly device that can play any of my sister’s favorite songs while repurposing existing electronics.
+                            <br><br>
+                            <b>Skills: </b> Electronics, CAD, 3D Printing, Design for Assembly (DFA), Python, API integration
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="content-section">
+                    <div class="content-left">
+                        <p class="section-description">
+                            <b>Design Process: </b> My approach to this project had a few distinct phases. The first phase was the research and design phase. After determining a turntable as my first problem statement, I looked into both vintage and modern versions. Since I had limited manufacturing methods, I decided to adopt a functionality-first approach where I focused on the components rather than material use. 
+                            <br><br>
+                            Next, I found the necessary electronics components from Amazon. I purchased an RFID Reader and repurposed an old Raspberry Pi 2, speaker, and battery. Software wise, I decided to use the Spotify API, so I could access my sister’s favorite songs. Since I had initially wanted to store the songs locally, the Raspberry Pi 2 had sufficed, but this need for wifi meant I needed to upgrade to the Pi 4. This phase, although the toughest, was my favorite since it sparked my interest in Python. 
+                            <br><br>
+                            Finally, I went through the testing phase which was by far the most time consuming. Since I hadn’t worked with electronics in the past, I had to troubleshoot many errors with both my software and hardware.                             
+                        </p>
+                    </div>
+                    <div class="content-right">
+                        <img src="images/Personal Projects/Record Player/CAD3.jpg" alt="Project Image" class="section-image">
+                    </div>
+                </div>
+
+
+                
+                <div class="content-section">
+                    <div class="content-left">
+                        <img src="images/Personal Projects/Record Player/CAD1.jpg" alt="Project Image" class="section-image">
+                    </div>
+                    <div class="content-right">
+                        <p class="section-description">
+                            <br><br>
+                            <b>Conclusion: </b> The completed record player achieved its primary goal of providing my sister with music. While working on this project, I also began to develop my own goals which included establishing familiarity with Fusion 360 and a Raspberry Pi which helped me with later projects. Beyond the initial goal, I had quite a few improvements I wanted to take into consideration while designing future projects and later implement into a second iteration of this project. 
+                            <br><br>
+                            <b>Future Considerations: </b> As one of my first projects, this experience taught me valuable lessons about designing and project management. Without a defined timeline, I occasionally fell into "rabbit holes" with specifics that weren’t important and procrastinated on parts that seemed daunting. In the future, I would like to implement a way to attach the various components to the main body. Though the buttons and knobs were secured via superglue and roughly dimensioned slots, I hope to add screw holes for the Pi and other components. In addition, I hope to add external speakers for increased sound quality. I also would like to increase the similarity to a real record player which would include a motor and needle. 
+                        </p>
+                    </div>
+                </div>
+
+                <!-- <button onclick="scrollToTop()" class="website-button">
+                    Back to Top
+                </button> -->
+
+			<div id="bg"></div>
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+            
+            function scrollToTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                const carousel = document.querySelector('.carousel-container');
+                const items = Array.from(carousel.querySelectorAll('.carousel-item'));
+                const itemWidth = items[0].offsetWidth;
+                const itemCount = items.length;
+                
+                carousel.querySelectorAll('.carousel-item').forEach(item => item.remove());
+                
+                const clonedItemsBefore = items.map(item => item.cloneNode(true));
+                const clonedItemsAfter = items.map(item => item.cloneNode(true));
+                const originalItems = items.map(item => item.cloneNode(true));
+                
+                clonedItemsBefore.forEach(item => carousel.appendChild(item));
+                originalItems.forEach(item => carousel.appendChild(item));
+                clonedItemsAfter.forEach(item => carousel.appendChild(item));
+                
+                carousel.scrollLeft = itemWidth * itemCount;
+                
+                carousel.addEventListener('wheel', (e) => {
+                    e.preventDefault();
+                    
+                    carousel.scrollLeft += (e.deltaX + e.deltaY)/2;
+                    
+                    const totalWidth = itemWidth * itemCount * 3;
+                    const currentPosition = carousel.scrollLeft;
+                    
+                    if (currentPosition >= itemWidth * itemCount * 2) {
+                        carousel.scrollLeft = currentPosition - (itemWidth * itemCount);
+                    } else if (currentPosition <= 0) {
+                        carousel.scrollLeft = currentPosition + (itemWidth * itemCount);
+                    }
+                });
+            });
+
+		</script>		
+	</body>
+</html>
