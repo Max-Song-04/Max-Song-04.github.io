@@ -1193,13 +1193,11 @@ input, select, textarea {
 		-ms-justify-content: space-between;
 		justify-content: space-between;
 		position: relative;
-		/* REMOVED: height: 100vh; */
-		/* CHANGED: overflow: hidden; to overflow: visible; */
-		min-height: 100vh; /* Changed from height to min-height */
-		width: 100%;
-		overflow: visible; /* Allow content to flow naturally */
-		padding: 4rem 2rem;
-		z-index: 3;
+               height: calc(100vh - 2rem);
+               width: 100%;
+               overflow: hidden;
+               padding: 4rem 2rem;
+               z-index: 3;
 	}
 
 		#wrapper:before {
@@ -1259,7 +1257,7 @@ input, select, textarea {
 
 		margin: auto;
 		/* padding: 2rem; */
-		max-height: 100vh;
+               max-height: calc(100vh - 2rem);
 	}
 
 		#header > * {
