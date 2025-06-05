@@ -1193,7 +1193,7 @@ input, select, textarea {
 		-ms-justify-content: space-between;
 		justify-content: space-between;
 		position: relative;
-               height: 100vh;
+               height: calc(100vh - 2rem);
                width: 100%;
                overflow: hidden;
                padding: 4rem 2rem;
@@ -1257,7 +1257,7 @@ input, select, textarea {
 
 		margin: auto;
 		/* padding: 2rem; */
-		max-height: 100vh;
+               max-height: calc(100vh - 2rem);
 	}
 
 		#header > * {

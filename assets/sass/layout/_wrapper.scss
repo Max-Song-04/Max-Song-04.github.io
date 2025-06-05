@@ -11,10 +11,10 @@
 		@include vendor('flex-direction', 'column');
 		@include vendor('align-items', 'center');
 		@include vendor('justify-content', 'space-between');
-		position: relative;
-               height: 100vh;
-               overflow: hidden;
-               width: 100%;
+position: relative;
+       height: calc(100vh - 2rem);
+       overflow: hidden;
+       width: 100%;
 		padding: 4rem 2rem;
 		z-index: 3;
 
