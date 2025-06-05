@@ -1193,13 +1193,11 @@ input, select, textarea {
 		-ms-justify-content: space-between;
 		justify-content: space-between;
 		position: relative;
-		/* REMOVED: height: 100vh; */
-		/* CHANGED: overflow: hidden; to overflow: visible; */
-		min-height: 100vh; /* Changed from height to min-height */
-		width: 100%;
-		overflow: visible; /* Allow content to flow naturally */
-		padding: 4rem 2rem;
-		z-index: 3;
+               height: 100vh;
+               width: 100%;
+               overflow: hidden;
+               padding: 4rem 2rem;
+               z-index: 3;
 	}
 
 		#wrapper:before {
