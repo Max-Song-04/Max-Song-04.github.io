@@ -25,6 +25,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+	overflow-y: hidden;
 }
 
 ol, ul {
@@ -47,6 +48,7 @@ table {
 
 body {
 	-webkit-text-size-adjust: none;
+	overflow-y: auto;
 }
 
 mark {
@@ -101,8 +103,6 @@ input, select, textarea {
 			-ms-transition: none !important;
 			transition: none !important;
 		}
-
-/* Type */
 
 	html {
 		font-size: 16pt;
@@ -1193,11 +1193,9 @@ input, select, textarea {
 		-ms-justify-content: space-between;
 		justify-content: space-between;
 		position: relative;
-		/* REMOVED: height: 100vh; */
-		/* CHANGED: overflow: hidden; to overflow: visible; */
-		min-height: 100vh; /* Changed from height to min-height */
+		height: 100vh;
 		width: 100%;
-		overflow: visible; /* Allow content to flow naturally */
+		overflow: hidden;
 		padding: 4rem 2rem;
 		z-index: 3;
 	}
@@ -1256,10 +1254,8 @@ input, select, textarea {
 		background-image: radial-gradient(rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 55%);
 		max-width: 100%;
 		text-align: center;
-
 		margin: auto;
-		/* padding: 2rem; */
-		max-height: 100vh;
+
 	}
 
 		#header > * {
@@ -1312,19 +1308,18 @@ input, select, textarea {
 			width: 21rem;
 		}
 
-			#header .content .inner {
-				-moz-transition: max-height 0.75s ease, padding 0.75s ease, opacity 0.325s ease-in-out;
-				-webkit-transition: max-height 0.75s ease, padding 0.75s ease, opacity 0.325s ease-in-out;
-				-ms-transition: max-height 0.75s ease, padding 0.75s ease, opacity 0.325s ease-in-out;
-				transition: max-height 0.75s ease, padding 0.75s ease, opacity 0.325s ease-in-out;
-				-moz-transition-delay: 0.25s;
-				-webkit-transition-delay: 0.25s;
-				-ms-transition-delay: 0.25s;
-				transition-delay: 0.25s;
-				padding: 3rem 2rem;
-				max-height: 40rem;
-				overflow: hidden;
-			}
+				#header .content .inner {
+					-moz-transition: max-height 0.75s ease, padding 0.75s ease, opacity 0.325s ease-in-out;
+					-webkit-transition: max-height 0.75s ease, padding 0.75s ease, opacity 0.325s ease-in-out;
+					-ms-transition: max-height 0.75s ease, padding 0.75s ease, opacity 0.325s ease-in-out;
+					transition: max-height 0.75s ease, padding 0.75s ease, opacity 0.325s ease-in-out;
+					-moz-transition-delay: 0.25s;
+					-webkit-transition-delay: 0.25s;
+					-ms-transition-delay: 0.25s;
+					transition-delay: 0.25s;
+					padding: 3rem 2rem;
+					overflow: visible;
+				}
 
 				#header .content .inner > :last-child {
 					margin-bottom: 0;
@@ -1661,3 +1656,4 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+

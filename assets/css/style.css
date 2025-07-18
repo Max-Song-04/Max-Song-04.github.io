@@ -105,7 +105,7 @@ html, body {
 .about-banner {
     background-color: var(--about-background-color);
     width: 100vw;
-    height: 50%;
+    min-height: 50vh;
     overflow-x: hidden;
     justify-content: center;
     position: relative;
@@ -114,9 +114,7 @@ html, body {
     padding: 4rem 0;
     transform: translateY(50px);
     transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
-    min-height: 20%;
 }
-
 .about-banner.visible {
     opacity: 1;
     transform: translateY(0);
@@ -167,20 +165,17 @@ html, body {
 
 .contact-banner {
     background-color: rgba(12, 13, 14, 0.65);
-    padding-top: 5vh;
-    padding-bottom: var(--padding-top);
+    padding: 5vh 0;
     overflow-x: hidden;
     width: 100%;
     margin: 0;
-    margin-top: -10vh;
-    height: 50vh;
-    z-index: -1;
-    transform: translateY(50px);
+    min-height: 50vh;
+    z-index: 1;
+    transform: translateY(0);
     transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
     display: flex;
-    left: 0;
     justify-content: center;
-    position: absolute;
+    position: relative;
 }
 
 .contact-text {
